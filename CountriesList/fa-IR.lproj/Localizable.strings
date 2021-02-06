@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  CountriesList
+
+  Created by mozhgan on 2/5/21.
+  
+*/
+"PULL_TO_REFRESH" = "به روز رسانی";
+"COUNTRY_LIST_TITLE" = "لیست";
+"ALERT" = "خطا!";
+"OK" = "باشه";
+"ADD" = "افزودن";
+"ADDED" = "افزوده شده";
+"SELECT_FOR_COUNTRIES" = "کشورهای مورد نظر را انتخاب نمایید";
+"THERE_IS_NO_INTERNET_CONNECTION" = "";
+"THERE_IS_NO_ITEM_TO_DISPLAY" = "";
+"DONE" = "Done";
+"CHOOSE" = "Choose";
+"Countries" = "Countries";
+"YOUR_SELECTED_COUNTRIES_ARE_HERE" = "Your selected countries are here";
