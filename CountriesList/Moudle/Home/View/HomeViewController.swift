@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var selectedCountriesView: UITextView? {
         didSet {
             selectedCountriesView?.text = ""
+            selectedCountriesView?.layer.borderWidth = 1.0
+            selectedCountriesView?.layer.cornerRadius = Layout.defaultCornerRadius
+            selectedCountriesView?.clipsToBounds = true
         }
     }
     @IBOutlet weak var chooseBtn: CustomButton? {
@@ -20,7 +23,6 @@ class HomeViewController: UIViewController {
             chooseBtn?.setTitle(LocalizeStrings.Home.choose, for: UIControl.State.normal)
         }
     }
-    
     @IBOutlet weak var captionLbl: TitleLabel? {
         didSet {
             captionLbl?.text = LocalizeStrings.Home.caption

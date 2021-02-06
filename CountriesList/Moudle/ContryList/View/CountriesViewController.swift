@@ -41,6 +41,7 @@ final class CountriesViewController: UIViewController {
         tmp.allowsSelection = false
         tmp.delegate = self
         tmp.dataSource = self
+        tmp.clipsToBounds = true
         tmp.register(CountryCell.self, forCellReuseIdentifier: reuseIdentifier)
         view.addSubview(tmp)
         tmp.addSubview(self.refreshCtrl)
@@ -51,7 +52,6 @@ final class CountriesViewController: UIViewController {
         let tmp = CustomButton()
         tmp.setTitle(LocalizeStrings.CountryListView.done, for: UIControl.State.normal)
         view.addSubview(tmp)
-        tmp.backgroundColor = UIColor.red
         return tmp
     }()
 
@@ -87,12 +87,13 @@ extension CountriesViewController {
     override func loadView() {
         super.loadView()
         tableView.snp.makeConstraints { (maker) in
-            maker.edges.top.left.right.equalToSuperview()
+            maker.top.left.right.equalToSuperview()
+            maker.bottom.equalTo(self.doneBtn.snp_topMargin)
         }
         doneBtn.snp.makeConstraints { (maker) in
-            maker.left.right.bottom.equalToSuperview()
-            maker.top.equalTo(self.tableView.snp_bottomMargin)
-            maker.height.equalTo(Layout.doneButtonHeight)
+            maker.leftMargin.rightMargin.equalToSuperview()
+            maker.bottom.equalToSuperview().offset(-Layout.defaultMargin)
+            maker.height.equalTo(Layout.defaultButtonHeight)
         }
     }
 }
@@ -150,9 +151,7 @@ extension CountriesViewController {
     }
 
     @objc func done(sender: UIButton) {
-        self.dismiss(animated: true) {
-            self.callback(self.presenter?.selectedCountries ?? [])
-        }
+        self.navigationController?.popViewController(animated: true)
     }
 }
 // MARK: - View to presenter
@@ -181,5 +180,6 @@ extension CountriesViewController: CountryCellDelegate {
             return
         }
         self.presenter?.toggle(index: indexPath)
+        self.callback(self.presenter?.selectedCountries ?? [])
     }
 }

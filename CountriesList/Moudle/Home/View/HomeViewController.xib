@@ -29,7 +29,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYd-nh-BvC">
-                    <rect key="frame" x="8" y="97" width="398" height="711"/>
+                    <rect key="frame" x="8" y="184" width="398" height="538"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <color key="textColor" systemColor="labelColor"/>
@@ -37,7 +37,10 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZr-aR-j4V" customClass="CustomButton" customModule="CountriesList" customModuleProvider="target">
-                    <rect key="frame" x="8" y="824" width="398" height="30"/>
+                    <rect key="frame" x="8" y="814" width="398" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="S0O-3G-c51"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="chooseWithSender:" destination="-1" eventType="touchUpInside" id="Q54-5U-9z2"/>
@@ -49,14 +52,21 @@
             <constraints>
                 <constraint firstItem="Bif-Mc-K1E" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="1je-BW-1tY"/>
                 <constraint firstItem="Bif-Mc-K1E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="Dke-sR-pS6"/>
+                <constraint firstItem="VYd-nh-BvC" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="FjC-k4-IiQ"/>
+                <constraint firstItem="VYd-nh-BvC" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="K9g-pn-jcq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LZr-aR-j4V" secondAttribute="trailing" constant="8" id="L6Z-A7-Fvo"/>
+                <constraint firstItem="VYd-nh-BvC" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="LVS-gp-Mf5"/>
                 <constraint firstItem="VYd-nh-BvC" firstAttribute="top" secondItem="Bif-Mc-K1E" secondAttribute="bottom" constant="16" id="SNS-Ij-N8v"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VYd-nh-BvC" secondAttribute="trailing" constant="8" id="TLS-na-8IR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LZr-aR-j4V" secondAttribute="bottom" constant="8" id="VBR-qf-cuK"/>
-                <constraint firstItem="LZr-aR-j4V" firstAttribute="top" secondItem="VYd-nh-BvC" secondAttribute="bottom" constant="16" id="hHe-g7-cfU"/>
                 <constraint firstItem="VYd-nh-BvC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="unx-Fe-iyg"/>
                 <constraint firstItem="LZr-aR-j4V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="v5Z-d7-S8F"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="SNS-Ij-N8v"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="122" y="60"/>
         </view>
     </objects>

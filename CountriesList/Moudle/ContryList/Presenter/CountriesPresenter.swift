@@ -9,8 +9,8 @@ import UIKit
 import Alamofire
 final class CountriesPresenter: VTPCountriesProtocol {
     weak var view: PTVCountriesProtocol?
-    var interactor: CountryPresentorToInteractorProtocol?
-    var router: CountryPresenterToRouterProtocol?
+    var interactor: PTICountryProtocol?
+    var router: PTRCountryProtocol?
 
     private var list: [Country] = [] {
         didSet {
@@ -55,7 +55,7 @@ extension CountriesPresenter {
         view?.reload(at: country)
     }
 }
-extension CountriesPresenter: InteractorToPresenterProtocol {
+extension CountriesPresenter: ITPCountryProtocol {
     func fetched(countries: [Country]) {
         self.view?.stopLoading()
         self.list = countries

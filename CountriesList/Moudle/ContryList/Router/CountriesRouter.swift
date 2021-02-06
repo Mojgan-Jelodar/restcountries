@@ -8,21 +8,19 @@
 
 import UIKit
 
-final class CountriesRouter: CountryPresenterToRouterProtocol {
+final class CountriesRouter: PTRCountryProtocol {
 
-    let presentingViewController: UIViewController
+    weak var presentingViewController: UIViewController?
 
-    required init(presentingViewController: UIViewController) {
+    init(presentingViewController: UIViewController) {
         self.presentingViewController = presentingViewController
     }
 
-    func showDetail(Country: Country) {
-    }
-    class func createModule(callback: @escaping CountriesViewController.SelectedCountriesCallback) -> UIViewController {
+    static func createModule(callback: @escaping CountriesViewController.SelectedCountriesCallback) -> UIViewController {
         let view = CountriesViewController(callback: callback)
-        let presenter: VTPCountriesProtocol & InteractorToPresenterProtocol = CountriesPresenter()
-        let interactor: CountryPresentorToInteractorProtocol = CotntriesInteractor<Country>()
-        let router: CountryPresenterToRouterProtocol = CountriesRouter(presentingViewController: view)
+        let presenter: VTPCountriesProtocol & ITPCountryProtocol = CountriesPresenter()
+        let interactor: PTICountryProtocol = CotntriesInteractor<Country>()
+        let router: PTRCountryProtocol = CountriesRouter(presentingViewController: view)
         view.presenter = presenter
         presenter.view = view
         presenter.router = router

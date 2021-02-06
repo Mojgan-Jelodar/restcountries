@@ -28,7 +28,6 @@ class CustomButton: UIButton {
         super.init(frame: frame)
         self.config()
     }
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.config()
@@ -36,6 +35,8 @@ class CustomButton: UIButton {
 
     internal func config() {
         self.isRtl =  UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft ? true : false
+        self.layer.cornerRadius = Layout.defaultCornerRadius
+        self.clipsToBounds = true
     }
 
 }

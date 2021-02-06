@@ -9,12 +9,12 @@
 import Foundation
 import Alamofire
 
-public class CotntriesInteractor<T>: CountryPresentorToInteractorProtocol {
+public class CotntriesInteractor<T>: PTICountryProtocol {
     deinit {
         print("Deinit ::\(self)")
         requests.forEach({$0.cancel()})
     }
-    weak var result: InteractorToPresenterProtocol?
+    weak var result: ITPCountryProtocol?
     private var requests: [MoyaCancellablePromise<T>]  = []
     private var countries: [Country] = [] {
         didSet {
@@ -46,7 +46,9 @@ public class CotntriesInteractor<T>: CountryPresentorToInteractorProtocol {
     }
 
     func filter(term: String) {
-        self.filteredCountries = self.countries.filter({($0.name ?? "").contains(term) || ($0.nativeName ?? "").contains(term)})
+        self.filteredCountries = self.countries.filter({
+            ($0.name ?? "").lowercased().contains(term.lowercased()) || ($0.nativeName ?? "").lowercased().contains(term.lowercased())
+        })
     }
 
     func filterCanceledByUser() {

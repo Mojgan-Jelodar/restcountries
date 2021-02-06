@@ -33,8 +33,8 @@ final class ThemeManager {
         SubtitleLabel.appearance().textColor = theme.subtitleTextColor
         TextLabel.appearance().textColor = theme.textColor
 
-        CustomButton.appearance().backgroundColor = theme.negativeBackgroundColor
-        CustomButton.appearance().titleLabel?.textColor = theme.titleTextColor
+        CustomButton.appearance().backgroundColor = theme.tintColor
+        CustomButton.appearance().tintColor = theme.textColor
 
         UITabBar.appearance().barStyle = theme.barStyle
         UISwitch.appearance().onTintColor = theme.tintColor.withAlphaComponent(0.3)

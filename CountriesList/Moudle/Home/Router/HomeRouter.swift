@@ -18,11 +18,11 @@ final class HomeRouter: PTRHomeProtocol {
 
     func choose(callback: @escaping CountriesViewController.SelectedCountriesCallback) {
         let view = CountriesRouter.createModule(callback: callback)
-        self.presentingViewController.present(view, animated: true, completion: nil)
+        self.presentingViewController.navigationController?.show(view, sender: nil)
     }
 
     class func createModule() -> UIViewController {
-        let view = HomeViewController(nibName: "\(HomeViewController.self)", bundle: nil)//CountriesViewController()
+        let view = HomeViewController(nibName: "\(HomeViewController.self)", bundle: nil)
         let presenter: VTPHomeProtocol = HomePresenter()
         let router: PTRHomeProtocol = HomeRouter(presentingViewController: view)
         view.presenter = presenter

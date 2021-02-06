@@ -47,10 +47,6 @@ final class CountryCell: UITableViewCell {
         let btn = UIButton(type: UIButton.ButtonType.custom)
         btn.setTitle(LocalizeStrings.CountryListView.add, for: UIControl.State.normal)
         btn.setTitle(LocalizeStrings.CountryListView.added, for: UIControl.State.selected)
-//        btn.contentEdgeInsets = UIEdgeInsets(top: Layout.defaultMargin,
-//                                           left:  Layout.defaultMargin,
-//                                           bottom:  Layout.defaultMargin,
-//                                           right:  Layout.defaultMargin)
         btn.contentMode = .scaleToFill
         btn.clipsToBounds = true
         btn.layer.masksToBounds = true
@@ -114,7 +110,7 @@ extension CountryCell {
         }
 
         self.addBtn.snp.makeConstraints { (make) in
-            make.trailingMargin.equalTo(self.descriptionLabel.snp_trailingMargin)//.offset(Layout.defaultMargin * 2)
+            make.trailingMargin.equalTo(self.descriptionLabel.snp_trailingMargin)
             make.centerY.equalToSuperview()
         }
 

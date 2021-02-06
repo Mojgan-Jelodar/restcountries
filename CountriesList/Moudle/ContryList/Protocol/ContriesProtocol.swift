@@ -16,14 +16,14 @@ protocol PTVCountriesProtocol: NSObjectProtocol {
     func reload(at indexPath: IndexPath)
 }
 
-protocol InteractorToPresenterProtocol: class {
+protocol ITPCountryProtocol: class {
       func fetched(countries: [Country])
       func fetched(error: Error)
 
 }
 
-protocol CountryPresentorToInteractorProtocol: class {
-    var result: InteractorToPresenterProtocol? {get set}
+protocol PTICountryProtocol: class {
+    var result: ITPCountryProtocol? {get set}
     var selectedCountries: [Country] { get }
     func fetchCotntries()
     func filter(term: String)
@@ -33,8 +33,8 @@ protocol CountryPresentorToInteractorProtocol: class {
 
 protocol VTPCountriesProtocol: class {
     var view: PTVCountriesProtocol? {get set}
-    var interactor: CountryPresentorToInteractorProtocol? {get set}
-    var router: CountryPresenterToRouterProtocol? {get set}
+    var interactor: PTICountryProtocol? {get set}
+    var router: PTRCountryProtocol? {get set}
     var numberOfSection: Int { get }
     var numberOfRowsInSection: Int { get }
     var selectedCountries: [Country] { get }
@@ -46,7 +46,6 @@ protocol VTPCountriesProtocol: class {
     func toggle(index country: IndexPath)
 }
 
-protocol CountryPresenterToRouterProtocol: class {
+protocol PTRCountryProtocol: class {
     static func createModule(callback: @escaping CountriesViewController.SelectedCountriesCallback) -> UIViewController
-    func showDetail(Country: Country)
 }

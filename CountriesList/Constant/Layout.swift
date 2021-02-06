@@ -11,5 +11,5 @@ struct Layout {
     static let defaultMargin = 8.0
     static let flagImageSize = CGSize(width: 60, height: 40)
     static let defaultCornerRadius: CGFloat = 8.0
-    static let doneButtonHeight: CGFloat = 40.0
+    static let defaultButtonHeight: CGFloat = 40.0
 }
